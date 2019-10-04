@@ -43,12 +43,6 @@ class Test {
     }
 }
 
-//function genRand() {
-//    return Math.random() + 1;
-//}
-
-//let result = genRand();
-
 var testClass = new Test('Dugland','aucun');
 let result = testClass.genRand(2);
 
