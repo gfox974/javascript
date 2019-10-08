@@ -347,7 +347,29 @@ let multiplier = (n,x) => n * x ;
 console.log(multiplier(5,3));
 
 let triple = (n) => multiplier(n,3); // ici on definit une fonction qui prends un argument et la passe dans une fonction tierce
-console.log("ICI:",triple(10));
+console.log(triple(10));
+
+// -------- La récursivité ----------
+// la factorielle de 5 : 5*4 ->*3 ->*2 ->*1 = 120
+// forme mathematique : factorielle = n * factorielle(n-1), si n <2 alors n. (condition d'arret)
+let factorielle_iter = (n) => {
+    let result= 1; // Dans une multiplication on utilise 1 comme element neutre
+    for (i=n;i>1;i--){
+        result=result*i;
+    }
+    return result;
+}
+console.log(factorielle_iter(5));
+
+// autre forme, non-iterative :
+let factorielle_recu = (n) => {
+    if (n<2) {
+        return n;
+    }
+    return n * factorielle_iter(n-1);
+}
+
+console.log("ICI:",factorielle_recu(4));
 
 facto = "test";
 console.log(maFonction(facto));
