@@ -1,4 +1,4 @@
-//import
+// require ? import ? ------> notions inexistantes en js :(
 
 /*let somme = 0;
 /* for(n=1;n<=100;n++) { console.log(n); } */
@@ -46,4 +46,10 @@ class Test {
 var testClass = new Test('Dugland','aucun');
 let result = testClass.genRand(2);
 
-console.log("Generated:",result,"name=",testClass.name,"att=",testClass.attValue());
+console.log("Generated:",result,"name=",testClass.name,"att bonus=",testClass.attValue());
+
+let maMap = new Map(); // création d'une map vide (l'objet, dynamique)
+maMap.set('cat','chat');
+maMap.set('dog','chien');
+ let hash = ['toto','titi'];
+ console.log(hash);
