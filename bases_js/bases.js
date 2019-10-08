@@ -436,3 +436,19 @@ setTimeout(function() { return console.log("nobody expects the spanish inquisiti
 console.log("exec de l'anonyme hors callback :",(function(a,b,c) { return a+b+c; }) (1,2,3));
 // l'avantage de creer un contexte spécifique entre () est de cloisonner les variables, pratique pour l'aspect fonctionnel
 
+/////////////////// ------------ Objets / classes -----------
+// ( heritage : voir extends et super constructor )
+class Chien {
+    constructor(name) {
+        this.name = name;
+        this.pattes = 4;
+        this.age = 2;
+    }
+    aboie() { // <- methode
+        console.log(this.name," : woof !");
+    }
+}
+
+const rex = new Chien("rex"); // objet = instanciation de classe
+console.log(rex.name," est un ", rex.type," a : ",rex.pattes, "pattes, et il a ",rex.age," ans.");
+rex.aboie();

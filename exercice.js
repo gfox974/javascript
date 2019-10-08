@@ -19,30 +19,25 @@ function countThatShit (texte) {
         restit.push(item);
     }
     //console.log("debug :",restit[1]);//- prends bien la comprehension de liste, la syntaxe est juste niquée lors de la conversion en string
-    return restit.toString();
+    return restit.toString(); // --> to str, mais restiturion map / array entier direct OK sous node, pas sous debugger
 }
 texte = "jfoaihjfo ajnfoahngoh aljnfanvanvkl";
 console.log("comptage = ",countThatShit(texte));
 
-// faire une fonction pour verifier si un mot donné est un palindrome (code donné erroné, a corriger)
-function palindrome(mot) {
-    let i = 0;
-    let j = mot.lenght -1;
-    console.log("debug=",mot[i],mot[j]);
-    while (i !== j){
-        if(mot[i] != mot[j]) {
+// faire une fonction pour verifier si un mot donné est un palindrome
+let estPalindrome = (mot) => {
+    let i = 0, j = mot.length-1; // on definis les points de depart des deux indices qui vont servir a balayer la chaine
+    while (i != j) {
+        if (mot[i] != mot[j]) {
             return false;
-            console.log(mot,"n'est pas un palindrome");
-            break;
         }
-        i = i+1;
-        j = j-1;
-        console.log("debug=",mot[i],mot[j]);
+        i++, j--;
     }
+    return true;
 }
 
-testmot = "palindrome";
-console.log("est-ce que ", testmot, "est un palindrome ? ", palindrome(testmot));
+testmot = "ducon";
+console.log("est-ce que ", testmot, "est un palindrome ? ", estPalindrome(testmot));
 
 // exercice recursif : coder la fonction de fibonacci ->
 // definition wikipedia:
@@ -105,3 +100,27 @@ let pattern = 30;
 let listref = [1,2,3,4,5,6,7,8,9,10];
 console.log("pattern found: ",memberRecu(pattern,listref));
 //console.log("pattern found: ",memberIter(pattern,listref))
+
+// corrigé, v.es6 :
+// exo compteur d'occurence de lettres sur un tableau associatif
+let stats = (texte) => {
+    let table = new Map(); // -> instanciation d'objet
+    // normalisation des données en input (mise des miniscules -> majuscule, comme ca il n'y aura pas deux compteurs selon la casse)
+    let texteNormalise = texte.toUpperCase();
+    for (let i=0; i<texteNormalise.length; i++) {
+        let lettre = texteNormalise[i]; // stockage de la lettre en cours de lecture -> comparo
+        if (table.has(lettre)) {
+            // si oui
+            table.set(lettre, table.get(lettre)+1);
+        } else {
+            // si non
+            table.set(lettre,1);
+        }
+    }
+    return table; // rendu flingué sous debugger
+}
+
+let textsource = "afjfpajfakfo aookapofkakf ZIHROHEF";
+console.log("Compte: ",stats(textsource));
+
+// ---- TP -> nodeschool.io ----
