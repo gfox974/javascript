@@ -53,3 +53,6 @@ maMap.set('cat','chat');
 maMap.set('dog','chien');
  let hash = ['toto','titi'];
  console.log(hash);
+
+ let listetest = [1,2,3,4];
+ console.log("len:",listetest.length);

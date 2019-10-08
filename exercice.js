@@ -18,7 +18,7 @@ function countThatShit (texte) {
         item.push(charzIn.get(each));
         restit.push(item);
     }
-    //console.log("debug :",restit[1]); - prends bien la comprehension de liste, la syntaxe est juste niquée lors de la conversion en string
+    //console.log("debug :",restit[1]);//- prends bien la comprehension de liste, la syntaxe est juste niquée lors de la conversion en string
     return restit.toString();
 }
 texte = "jfoaihjfo ajnfoahngoh aljnfanvanvkl";
@@ -76,3 +76,32 @@ const fib = (n) => {
 let nb_base = 10; // gaffe a la memoire !
 console.log("🐰".repeat(fibo(nb_base)));
 console.log("🐰".repeat(fib(nb_base)));
+
+// exercice : creer une fonction member qui prends un element en parametre, parcours une liste et retourne vrai si l'element cherché est présent
+const memberRecu = (pat,ref) => {
+    //if (ref.length === 0){
+    if (ref == false){ // ! gaffe a l'absolu du comparo des operateurs, ici ne marchera pas avec 3 =
+        return false;
+    }
+    if (pat === ref[0]){
+        return true;
+    }
+    return memberRecu(pat,ref.slice(1));
+}
+// version iterative, syntaxe abregée
+let memberIter = (element,liste) => {
+    if (liste === []) {
+        return false;
+    }
+    for (let i=0;i<liste.length-1;i++) {
+        if (element === liste[i]) {
+            return true;
+        }
+    }
+    return false;
+}
+
+let pattern = 30;
+let listref = [1,2,3,4,5,6,7,8,9,10];
+console.log("pattern found: ",memberRecu(pattern,listref));
+//console.log("pattern found: ",memberIter(pattern,listref))
