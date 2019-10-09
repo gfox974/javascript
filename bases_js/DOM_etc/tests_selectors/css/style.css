@@ -1,0 +1,48 @@
+#test {
+    text-transform: uppercase;
+    background-color: orangered;
+    color: black;
+}
+
+.titre {
+    text-decoration: underline;
+}
+
+.rouge {
+    color: red;
+}
+
+.wrap_center {
+    position: relative;
+}
+
+#dp {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-15%);
+    transform: rotate(90deg);
+}
+
+#first {
+    color: orange;
+}
+
+#second {
+    color: yellow;
+}
+
+.latin {
+    color: green;
+}
+
+p .latin {
+    color: aqua;
+}
+
+p .new {
+    color: blue;
+}
+
+.azerty {
+
+}
