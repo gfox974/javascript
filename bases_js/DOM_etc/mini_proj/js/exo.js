@@ -1,7 +1,7 @@
 // Ici, definition de la fonction pour changer d'icone selon moment de la journee
 let changeDaytime = (hour) => {
     let curPhase = document.getElementById("dayphase");
-    //let dummyTime = 12;
+    //let dummyTime = 1;
     //if ( dummyTime >= 18){
     if ( hour >= 18){
         if (hour <= 6) {
