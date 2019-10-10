@@ -118,3 +118,29 @@ body {
 #horaire {
   
 }
+/* exo */
+.suntime {
+  background: url("/javascript/bases_js/DOM_etc/mini_proj/img/sun-icon.jpg");
+  background-size: contain;
+  height: 50px;
+  width: 50px;
+}
+
+.moontime {
+  background: url("/javascript/bases_js/DOM_etc/mini_proj/img/moon-icon.png");
+  background-size: contain;
+  height: 50px;
+  width: 50px;
+}
+
+.font-norm {
+  font-size: 1rem;
+}
+
+.font-med {
+  font-size: 12px;
+}
+
+.font-large {
+  font-size: 24px;
+}

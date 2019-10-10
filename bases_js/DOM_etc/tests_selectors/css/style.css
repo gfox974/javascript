@@ -46,3 +46,9 @@ p .new {
 .azerty {
 
 }
+
+/* multi */
+#wrapper {
+    background-color: bisque;
+    height: 100px;
+}

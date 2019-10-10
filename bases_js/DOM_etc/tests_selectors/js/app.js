@@ -19,9 +19,9 @@ function changeOrdre() {
     let paragraphes = document.getElementsByTagName("p");
     document.body.insertBefore(paragraphes[1],paragraphes[0]);
 }
-changeOrdre();
-setTimeout(changeOrdre,1000); // callback
-setInterval(changeOrdre,2000); // boucle
+//changeOrdre();
+//setTimeout(changeOrdre,1000); // callback
+//setInterval(changeOrdre,2000); // boucle
 
 let changeImage = () => { // ici on va remplacer une image par un texte
     let image = document.getElementById("dp");
@@ -44,7 +44,7 @@ let changeColor = () => {
     }
 }
 
-setTimeout(changeColor,10000);
+//setTimeout(changeColor,10000);
 /* Evite de se faire chier avec des gros blocs genre :
 let latinItem = document.getElementsByClassName("latin");
 if (latinItem.parentNode == "p") {
@@ -52,3 +52,22 @@ if (latinItem.parentNode == "p") {
 }*/
 
 
+// fonction pour attacher un eventlistener pour chaque element avec l'id bouton (attention aux perfs, plus il y a d'elements en listen - perfs)
+let boutons = document.getElementsByTagName("button");
+for (var i=0;i<boutons.length;i++){
+    boutons[i].addEventListener('click', function() {
+        console.log("onclick sur", i,"elements");
+    })
+}
+
+// Test de repercution element -> trigger du meme event sur le parent (bouillonnement)
+document.getElementById("paragraphe").addEventListener("click", (event) => { // On peut empecher la propagation en mettant e ou event dans la fonction, l'element etant implicite
+    event.stopPropagation(); // ici on passe la directive
+    console.log("click paragraphe");
+})
+document.getElementById("wrapper").addEventListener("click", () => {
+    console.log("click wrapper");
+})
+
+
+//Ici on va utiliser l'objet event pour identifier l'element ciblé (methode target event), permet d'optimiser en reduisant le nombre de listener necessaires dans les cas d'event multiples
